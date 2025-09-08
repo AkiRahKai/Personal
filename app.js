@@ -49,9 +49,7 @@ let selectedHole;
 let clubSuggestions;
 let windButton;
 let imageButton;
-let windModal;
 let imageModal;
-let windIframe;
 let holeImage;
 let imageError;
 let imageModalTitle;
@@ -73,9 +71,7 @@ function initializeApp() {
   clubSuggestions = document.getElementById('clubSuggestions');
   windButton = document.getElementById('windButton');
   imageButton = document.getElementById('imageButton');
-  windModal = document.getElementById('windModal');
   imageModal = document.getElementById('imageModal');
-  windIframe = document.getElementById('windIframe');
   holeImage = document.getElementById('holeImage');
   imageError = document.getElementById('imageError');
   imageModalTitle = document.getElementById('imageModalTitle');
@@ -115,9 +111,10 @@ function setupEventListeners() {
     }
   });
 
-  // Wind button handler
+  // Wind button handler - Opens in new tab
   windButton.addEventListener('click', function() {
-    openWindModal();
+    console.log('Opening wind conditions in new tab');
+    window.open(golfData.windUrl, '_blank', 'noopener,noreferrer');
   });
 
   // Image button handler
@@ -127,13 +124,7 @@ function setupEventListeners() {
     }
   });
 
-  // Modal close handlers
-  windModal.addEventListener('click', function(e) {
-    if (e.target === windModal) {
-      closeWindModal();
-    }
-  });
-
+  // Image modal close handler
   imageModal.addEventListener('click', function(e) {
     if (e.target === imageModal) {
       closeImageModal();
@@ -143,9 +134,6 @@ function setupEventListeners() {
   // Keyboard handlers for modals
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-      if (!windModal.classList.contains('hidden')) {
-        closeWindModal();
-      }
       if (!imageModal.classList.contains('hidden')) {
         closeImageModal();
       }
@@ -269,21 +257,6 @@ function calculateClubSuggestions(holeLength) {
   }
 }
 
-// Modal functions
-function openWindModal() {
-  console.log('Opening wind modal');
-  windIframe.src = golfData.windUrl;
-  windModal.classList.remove('hidden');
-  document.body.style.overflow = 'hidden'; // Prevent background scrolling
-}
-
-function closeWindModal() {
-  console.log('Closing wind modal');
-  windModal.classList.add('hidden');
-  windIframe.src = ''; // Clear iframe to stop loading
-  document.body.style.overflow = ''; // Restore scrolling
-}
-
 function openImageModal(holeNumber) {
   console.log('Opening image modal for hole', holeNumber);
 
@@ -326,7 +299,6 @@ function closeImageModal() {
 }
 
 // Global functions for modal close buttons
-window.closeWindModal = closeWindModal;
 window.closeImageModal = closeImageModal;
 
 console.log('Golf Caddie app initialized successfully');

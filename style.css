@@ -195,11 +195,6 @@ body {
   flex-direction: column;
 }
 
-.wind-modal-content {
-  width: 90vw;
-  height: 90vh;
-}
-
 .image-modal-content {
   max-width: 80vw;
   max-height: 80vh;
@@ -240,14 +235,6 @@ body {
   flex: 1;
   padding: 1.5rem;
   overflow: auto;
-}
-
-/* Wind iframe */
-#windIframe {
-  width: 100%;
-  height: 100%;
-  min-height: 500px;
-  border: none;
 }
 
 /* Hole image styles */
@@ -308,11 +295,6 @@ body {
     margin: 1rem;
     max-width: calc(100vw - 2rem);
     max-height: calc(100vh - 2rem);
-  }
-
-  .wind-modal-content {
-    width: calc(100vw - 2rem);
-    height: calc(100vh - 2rem);
   }
 }
 
