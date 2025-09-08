@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personalized Caddie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Your Personalized Caddie</h1>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <!-- Golf Course Section -->
+                <div class="section">
+                    <div class="dropdown-container">
+                        <select id="golfCourseSelect" class="form-control dropdown">
+                            <option value="" selected>Golf Course</option>
+                            <option value="hylliekrokens">Hylliekrokens Golfcenter</option>
+                        </select>
+                    </div>
+                    <div id="selectedCourse" class="selection-display hidden"></div>
+                </div>
+
+                <!-- Hole Number Section -->
+                <div class="section">
+                    <div class="dropdown-container">
+                        <select id="holeSelect" class="form-control dropdown" disabled>
+                            <option value="" selected>Hole number</option>
+                        </select>
+                    </div>
+                    <div id="selectedHole" class="selection-display hidden"></div>
+                </div>
+
+                <!-- Suggested Clubs Section -->
+                <div class="section">
+                    <h3 class="section-title">Suggested clubs</h3>
+                    <div id="clubSuggestions" class="club-suggestions">
+                        <p class="placeholder-text">Select a hole to see club suggestions</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
