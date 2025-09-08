@@ -18,21 +18,31 @@
             <div class="container">
                 <!-- Golf Course Section -->
                 <div class="section">
-                    <div class="dropdown-container">
-                        <select id="golfCourseSelect" class="form-control dropdown">
-                            <option value="" selected>Golf Course</option>
-                            <option value="hylliekrokens">Hylliekrokens Golfcenter</option>
-                        </select>
+                    <div class="dropdown-row">
+                        <div class="dropdown-container">
+                            <select id="golfCourseSelect" class="form-control dropdown">
+                                <option value="" selected>Golf Course</option>
+                                <option value="hylliekrokens">Hylliekrokens Golfcenter</option>
+                            </select>
+                        </div>
+                        <button id="windButton" class="action-button" title="View Wind Conditions">
+                            <span class="wind-icon">💨</span>
+                        </button>
                     </div>
                     <div id="selectedCourse" class="selection-display hidden"></div>
                 </div>
 
                 <!-- Hole Number Section -->
                 <div class="section">
-                    <div class="dropdown-container">
-                        <select id="holeSelect" class="form-control dropdown" disabled>
-                            <option value="" selected>Hole number</option>
-                        </select>
+                    <div class="dropdown-row">
+                        <div class="dropdown-container">
+                            <select id="holeSelect" class="form-control dropdown" disabled>
+                                <option value="" selected>Hole number</option>
+                            </select>
+                        </div>
+                        <button id="imageButton" class="action-button" title="View Hole Image" disabled>
+                            <span class="image-icon">🏔️</span>
+                        </button>
                     </div>
                     <div id="selectedHole" class="selection-display hidden"></div>
                 </div>
@@ -46,6 +56,36 @@
                 </div>
             </div>
         </main>
+
+        <!-- Wind Modal -->
+        <div id="windModal" class="modal hidden">
+            <div class="modal-content wind-modal-content">
+                <div class="modal-header">
+                    <h3>Wind Conditions</h3>
+                    <button class="modal-close" onclick="closeWindModal()">×</button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="windIframe" src="" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Modal -->
+        <div id="imageModal" class="modal hidden">
+            <div class="modal-content image-modal-content">
+                <div class="modal-header">
+                    <h3 id="imageModalTitle">Hole Image</h3>
+                    <button class="modal-close" onclick="closeImageModal()">×</button>
+                </div>
+                <div class="modal-body">
+                    <img id="holeImage" src="" alt="Hole Image" class="hole-image hidden">
+                    <div id="imageError" class="image-error hidden">
+                        <p>Image not available for this hole</p>
+                        <p>Please add the image to the images folder as: <strong id="expectedFileName"></strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="app.js"></script>
